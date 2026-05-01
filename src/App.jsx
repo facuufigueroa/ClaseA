@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Scissors, MapPin } from "lucide-react";
 import barberImg from "./img/barber_inicio.jpg";
 import Counter from "./Counter";
-
+import logo from "./img/clase a 1.jpeg";
 const services = [
   { title: "Corte", desc: "Precisión y estilo moderno." },
   { title: "Barba", desc: "Perfilado y terminación premium." },
@@ -19,16 +19,30 @@ const gallery = [
 export default function App() {
   return (
     <main className="bg-black text-white">
-      <nav className="fixed top-0 left-0 w-full z-50 px-6 md:px-16 py-4 flex justify-between items-center bg-black/45 backdrop-blur-md border-b border-white/10">
-        <div className="text-white font-black tracking-widest border border-white px-4 py-2">
+      <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-[92%] max-w-7xl z-50 px-5 py-3 flex justify-between items-center rounded-full border border-white/10 bg-black/55 backdrop-blur-xl shadow-2xl">
+        <a
+          href="#"
+          className="text-white font-black tracking-[0.25em] border border-white/40 px-4 py-2 rounded-full text-sm hover:bg-white hover:text-black transition"
+        >
           CLASE A
+        </a>
+
+        <div className="hidden md:flex items-center gap-2 text-sm text-gray-300">
+          {[
+            ["Servicios", "#servicios"],
+            ["Galería", "#galeria"],
+            ["Cursos", "#cursos"],
+          ].map(([label, href]) => (
+            <a
+              key={label}
+              href={href}
+              className="px-4 py-2 rounded-full hover:bg-white hover:text-black transition"
+            >
+              {label}
+            </a>
+          ))}
         </div>
 
-        <div className="hidden md:flex gap-8 text-sm text-gray-300">
-          <a href="#servicios" className="hover:text-white transition">Servicios</a>
-          <a href="#galeria" className="hover:text-white transition">Galería</a>
-          <a href="#turnos" className="hover:text-white transition">Turnos</a>
-        </div>
       </nav>
 
       {/* HERO */}
@@ -50,9 +64,7 @@ export default function App() {
           transition={{ duration: 0.9 }}
           className="relative z-10 px-6 md:px-16 max-w-5xl pt-24"
         >
-          <span className="text-xs tracking-[0.45em] text-gray-400">
-            BARBERÍA PREMIUM
-          </span>
+
 
           <h1 className="mt-6 text-5xl md:text-8xl font-black leading-[0.88] uppercase tracking-tight">
             No es solo un
@@ -70,9 +82,9 @@ export default function App() {
           <div className="flex gap-4 mt-9 flex-wrap">
             <a
               href="#turnos"
-              className="inline-flex items-center gap-2 bg-white text-black px-7 py-4 rounded-full font-bold hover:scale-105 transition"
+              className="inline-flex items-center px-7 py-4 rounded-full border border-white/30 hover:bg-white/10 transition"
             >
-              Reservar turno <ArrowRight size={18} />
+              Ver disponibilidad
             </a>
 
             <a
@@ -175,73 +187,73 @@ export default function App() {
       </section>
 
       {/* RESEÑAS */}
-<section className="relative overflow-hidden py-28 px-6 md:px-16 bg-neutral-950">
-  <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(255,255,255,0.08),transparent_30%)]" />
+      <section className="relative overflow-hidden py-28 px-6 md:px-16 bg-neutral-950">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(255,255,255,0.08),transparent_30%)]" />
 
-  <div className="relative z-10 mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-    <div>
-      <span className="text-xs tracking-[0.45em] text-gray-500 uppercase">
-        Reseñas
-      </span>
+        <div className="relative z-10 mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div>
+            <span className="text-xs tracking-[0.45em] text-gray-500 uppercase">
+              Reseñas
+            </span>
 
-      <h2 className="mt-5 text-4xl md:text-6xl font-black uppercase leading-tight">
-        Lo que dicen
-        <br />
-        nuestros clientes.
-      </h2>
-    </div>
-
-    <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-6 py-4">
-      <div className="text-2xl tracking-widest text-white">★★★★★</div>
-      <p className="text-sm text-gray-400 mt-1">Valoración en Google Maps</p>
-    </div>
-  </div>
-
-  <div className="relative z-10 grid md:grid-cols-3 gap-6">
-    {[
-      {
-        name: "Facundo M.",
-        text: "Excelente atención, lugar impecable y el corte quedó tal cual lo pedí.",
-      },
-      {
-        name: "Juan P.",
-        text: "Muy prolijo, buena onda y se nota el detalle en cada terminación.",
-      },
-      {
-        name: "Lucas R.",
-        text: "De las mejores barberías. Ambiente premium y laburo muy fino.",
-      },
-    ].map((review, i) => (
-      <motion.div
-        key={review.name}
-        initial={{ opacity: 0, y: 45 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: i * 0.15, duration: 0.6 }}
-        className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-black p-8 hover:-translate-y-2 hover:border-white/25 transition duration-300"
-      >
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-
-        <div className="mb-6 flex items-center gap-4">
-          <div className="h-12 w-12 rounded-full bg-white text-black grid place-items-center font-black">
-            {review.name[0]}
+            <h2 className="mt-5 text-4xl md:text-6xl font-black uppercase leading-tight">
+              Lo que dicen
+              <br />
+              nuestros clientes.
+            </h2>
           </div>
 
-          <div>
-            <h3 className="font-bold">{review.name}</h3>
-            <div className="text-sm tracking-widest text-white">★★★★★</div>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.04] px-6 py-4">
+            <div className="text-2xl tracking-widest text-white">★★★★★</div>
+            <p className="text-sm text-gray-400 mt-1">Valoración en Google Maps</p>
           </div>
         </div>
 
-        <p className="text-gray-400 leading-relaxed">“{review.text}”</p>
+        <div className="relative z-10 grid md:grid-cols-3 gap-6">
+          {[
+            {
+              name: "Facundo M.",
+              text: "Excelente atención, lugar impecable y el corte quedó tal cual lo pedí.",
+            },
+            {
+              name: "Juan P.",
+              text: "Muy prolijo, buena onda y se nota el detalle en cada terminación.",
+            },
+            {
+              name: "Lucas R.",
+              text: "De las mejores barberías. Ambiente premium y laburo muy fino.",
+            },
+          ].map((review, i) => (
+            <motion.div
+              key={review.name}
+              initial={{ opacity: 0, y: 45 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.15, duration: 0.6 }}
+              className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-black p-8 hover:-translate-y-2 hover:border-white/25 transition duration-300"
+            >
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
 
-        <p className="mt-8 text-xs uppercase tracking-[0.3em] text-white/35">
-          Google Maps
-        </p>
-      </motion.div>
-    ))}
-  </div>
-</section>
+              <div className="mb-6 flex items-center gap-4">
+                <div className="h-12 w-12 rounded-full bg-white text-black grid place-items-center font-black">
+                  {review.name[0]}
+                </div>
+
+                <div>
+                  <h3 className="font-bold">{review.name}</h3>
+                  <div className="text-sm tracking-widest text-white">★★★★★</div>
+                </div>
+              </div>
+
+              <p className="text-gray-400 leading-relaxed">“{review.text}”</p>
+
+              <p className="mt-8 text-xs uppercase tracking-[0.3em] text-white/35">
+                Google Maps
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
       {/* SERVICIOS */}
       <section
@@ -451,29 +463,131 @@ export default function App() {
       </section>
 
       {/* TURNOS */}
-      <section id="turnos" className="py-28 px-6 text-center bg-neutral-900">
-        <span className="text-xs tracking-widest text-gray-500">RESERVAS</span>
+      <section
+        id="turnos"
+        className="relative overflow-hidden py-32 px-6 md:px-16 bg-black"
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.12),transparent_30%),radial-gradient(circle_at_80%_80%,rgba(255,255,255,0.08),transparent_28%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:80px_80px] opacity-20" />
 
-        <h2 className="mt-4 text-4xl md:text-5xl font-bold mb-6">
-          Tu próximo corte puede ser Clase A.
-        </h2>
-
-        <p className="text-gray-400 max-w-xl mx-auto mb-8">
-          Reservá tu turno y viví la experiencia completa.
-        </p>
-
-        <a
-          href="https://google.com"
-          target="_blank"
-          className="inline-flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-bold hover:scale-105 transition"
+        <motion.div
+          initial={{ opacity: 0, y: 45 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="relative z-10 max-w-5xl mx-auto text-center rounded-[2.5rem] border border-white/10 bg-white/[0.04] px-6 py-16 md:px-16 md:py-20 shadow-2xl"
         >
-          Sacar turno <ArrowRight size={18} />
-        </a>
+          <span className="text-xs tracking-[0.45em] text-white/45 uppercase">
+            Reservas
+          </span>
+
+          <h2 className="mt-5 text-4xl md:text-7xl font-black uppercase tracking-tight leading-[0.95]">
+            Tu próximo corte
+            <br />
+            puede ser Clase A.
+          </h2>
+
+          <p className="mt-6 text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+            Elegí tu horario, reservá en segundos y vení directo a vivir la experiencia.
+          </p>
+
+          <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+            <a
+              href="https://google.com"
+              target="_blank"
+              className="inline-flex items-center justify-center gap-2 bg-white text-black px-8 py-4 rounded-full font-black hover:scale-105 transition"
+            >
+              Sacar turno <ArrowRight size={18} />
+            </a>
+
+            <a
+              href="#galeria"
+              className="inline-flex items-center justify-center px-8 py-4 rounded-full border border-white/15 text-white hover:bg-white/10 transition"
+            >
+              Ver trabajos antes
+            </a>
+          </div>
+
+          <div className="mt-12 grid md:grid-cols-3 gap-4 text-left">
+            {[
+              ["01", "Reservá online", "Acceso directo al sistema de turnos."],
+              ["02", "Elegí servicio", "Corte, barba o experiencia completa."],
+              ["03", "Venite listo", "Nosotros nos ocupamos del resto."],
+            ].map(([num, title, text]) => (
+              <div
+                key={num}
+                className="rounded-3xl border border-white/10 bg-black/40 p-6"
+              >
+                <span className="text-white/25 font-black text-4xl">{num}</span>
+                <h3 className="mt-4 font-bold text-lg">{title}</h3>
+                <p className="mt-2 text-sm text-gray-500">{text}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </section>
 
-      <footer className="px-6 py-8 border-t border-neutral-800 flex justify-between text-sm text-gray-500">
-        <span>CLASE A</span>
-        <span>Barbería premium</span>
+      <footer className="relative overflow-hidden border-t border-white/10 bg-[#050505] px-6 md:px-16 py-16">
+
+        {/* fondo glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_30%)]" />
+
+        <div className="relative z-10 grid md:grid-cols-3 gap-10 items-start">
+
+          {/* MARCA */}
+          <div>
+            <img
+              src={logo}
+              alt="Clase A"
+              className="w-40 opacity-90"
+            />
+
+            <p className="mt-4 text-gray-400 max-w-sm">
+              Barbería premium enfocada en estilo, detalle y presencia.
+            </p>
+          </div>
+
+          {/* LINKS */}
+          <div className="flex flex-col gap-3 text-gray-400">
+            <span className="text-white font-semibold mb-2">Navegación</span>
+
+            <a href="#servicios" className="hover:text-white transition">
+              Servicios
+            </a>
+            <a href="#galeria" className="hover:text-white transition">
+              Galería
+            </a>
+            <a href="#cursos" className="hover:text-white transition">
+              Cursos
+            </a>
+            <a href="#turnos" className="hover:text-white transition">
+              Turnos
+            </a>
+          </div>
+
+          {/* UBICACIÓN */}
+          <div>
+            <span className="text-white font-semibold">Ubicación</span>
+
+            <p className="mt-3 text-gray-400">
+              Junín, Buenos Aires
+            </p>
+
+            <a
+              href="https://maps.app.goo.gl/QRuRFiy2UmjRojhY6"
+              target="_blank"
+              className="inline-flex items-center gap-2 mt-4 text-sm text-white border border-white/20 px-4 py-2 rounded-full hover:bg-white hover:text-black transition"
+            >
+              Ver en Google Maps
+            </a>
+          </div>
+        </div>
+
+        {/* LINEA FINAL */}
+        <div className="relative z-10 mt-14 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between text-sm text-gray-500 gap-4">
+          <span>© {new Date().getFullYear()} Clase A</span>
+          <span>Diseño & desarrollo Facundo Figueroa</span>
+        </div>
       </footer>
     </main>
   );
